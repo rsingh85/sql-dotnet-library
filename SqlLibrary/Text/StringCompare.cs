@@ -15,7 +15,13 @@ namespace SqlLibrary.Text
         [SqlProcedure]
         public static double GetTextSimilarity(string inputOne, string inputTwo)
         {
-            if (string.IsNullOrEmpty(inputOne) && string.IsNullOrEmpty(inputTwo))
+            if (inputOne == null)
+                throw new ArgumentNullException(nameof(inputOne));
+
+            if (inputTwo == null)
+                throw new ArgumentNullException(nameof(inputTwo));
+
+            if (inputOne == string.Empty && inputTwo == string.Empty)
                 return 1;
 
             int distance = new LevenshteinDistance().Compute(inputOne, inputTwo);

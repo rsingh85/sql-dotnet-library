@@ -15,6 +15,12 @@ namespace SqlLibrary.Text
         [SqlProcedure]
         public int Compute(string inputOne, string inputTwo)
         {
+            if (inputOne == null)
+                throw new ArgumentNullException(nameof(inputOne));
+
+            if (inputTwo == null)
+                throw new ArgumentNullException(nameof(inputTwo));
+
             int[,] d = new int[inputOne.Length + 1, inputTwo.Length + 1];
 
             if (inputOne.Length == 0)
