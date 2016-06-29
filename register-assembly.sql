@@ -1,4 +1,6 @@
-CREATE ASSEMBLY SqlLibrary from '[PATH_HERE]\SqlLibrary.dll' WITH PERMISSION_SET = SAFE
+USE [INSERT_DB_NAME_HERE]
+
+CREATE ASSEMBLY SqlLibrary from '[INSERT_ASSEMBLY_PATH_HERE]\SqlLibrary.dll' WITH PERMISSION_SET = SAFE
 GO
 
 CREATE FUNCTION GetTextSimilarity(@inputOne [nvarchar](4000), @inputTwo [nvarchar](4000))
