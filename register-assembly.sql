@@ -9,3 +9,9 @@ RETURNS [float] WITH EXECUTE AS CALLER, RETURNS NULL ON NULL INPUT
 AS 
 EXTERNAL NAME [SqlLibrary].[SqlLibrary.Text.StringCompare].[GetTextSimilarity]
 GO
+
+sp_configure 'clr enabled', 1
+GO
+
+RECONFIGURE
+GO
