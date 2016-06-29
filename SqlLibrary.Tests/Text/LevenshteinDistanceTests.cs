@@ -7,14 +7,6 @@ namespace SqlLibrary.Tests.Text
     [TestClass]
     public class LevenshteinDistanceTests
     {
-        private LevenshteinDistance _levenshteinDistance;
-
-        [TestInitialize]
-        public void Initialise()
-        {
-            _levenshteinDistance = new LevenshteinDistance();
-        }
-
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Compute_ShouldThrowArgumentNullException_WhenInputOneIsNull()
@@ -24,7 +16,7 @@ namespace SqlLibrary.Tests.Text
             string inputTwo = "test";
 
             // Act
-            double distance = _levenshteinDistance.Compute(inputOne, inputTwo);
+            double distance = LevenshteinDistance.GetLevenshteinDistance(inputOne, inputTwo);
         }
 
         [TestMethod]
@@ -36,7 +28,7 @@ namespace SqlLibrary.Tests.Text
             string inputTwo = null;
 
             // Act
-            double distance = _levenshteinDistance.Compute(inputOne, inputTwo);
+            double distance = LevenshteinDistance.GetLevenshteinDistance(inputOne, inputTwo);
         }
 
         [TestMethod]
@@ -47,7 +39,7 @@ namespace SqlLibrary.Tests.Text
             string inputTwo = "test";
 
             // Act
-            double distance = _levenshteinDistance.Compute(inputOne, inputTwo);
+            double distance = LevenshteinDistance.GetLevenshteinDistance(inputOne, inputTwo);
 
             // Assert
             Assert.AreEqual<double>(expected: 0, actual: distance);
@@ -61,7 +53,7 @@ namespace SqlLibrary.Tests.Text
             string inputTwo = "test";
 
             // Act
-            double distance = _levenshteinDistance.Compute(inputOne, inputTwo);
+            double distance = LevenshteinDistance.GetLevenshteinDistance(inputOne, inputTwo);
 
             // Assert
             Assert.AreEqual<double>(expected: 2, actual: distance);
@@ -75,7 +67,7 @@ namespace SqlLibrary.Tests.Text
             string inputTwo = "test";
 
             // Act
-            double distance = _levenshteinDistance.Compute(inputOne, inputTwo);
+            double distance = LevenshteinDistance.GetLevenshteinDistance(inputOne, inputTwo);
 
             // Assert
             Assert.AreEqual<double>(expected: 2, actual: distance);
@@ -89,7 +81,7 @@ namespace SqlLibrary.Tests.Text
             string inputTwo = "txyz";
 
             // Act
-            double distance = _levenshteinDistance.Compute(inputOne, inputTwo);
+            double distance = LevenshteinDistance.GetLevenshteinDistance(inputOne, inputTwo);
 
             // Assert
             Assert.AreEqual<double>(expected: 3, actual: distance);
@@ -104,7 +96,7 @@ namespace SqlLibrary.Tests.Text
 
 
             // Act
-            double distance = _levenshteinDistance.Compute(inputOne, inputTwo);
+            double distance = LevenshteinDistance.GetLevenshteinDistance(inputOne, inputTwo);
 
             // Assert
             Assert.AreEqual<double>(expected: 0, actual: distance);

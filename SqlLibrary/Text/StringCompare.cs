@@ -24,7 +24,7 @@ namespace SqlLibrary.Text
             if (inputOne == string.Empty && inputTwo == string.Empty)
                 return 1;
 
-            int distance = new LevenshteinDistance().Compute(inputOne, inputTwo);
+            int distance = LevenshteinDistance.GetLevenshteinDistance(inputOne, inputTwo);
 
             return 1.0 - distance / (double)Math.Max(inputOne.Length, inputTwo.Length);
         }

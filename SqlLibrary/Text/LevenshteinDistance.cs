@@ -3,7 +3,7 @@ using Microsoft.SqlServer.Server;
 
 namespace SqlLibrary.Text
 {
-    public class LevenshteinDistance
+    public static class LevenshteinDistance
     {
         /// <summary>
         /// Computes the Levenshtein distance between two string inputs. 
@@ -13,7 +13,7 @@ namespace SqlLibrary.Text
         /// <param name="inputTwo">String to compare against inputOne.</param>
         /// <returns>The Levenshtein distance between stringOne and stringTwo</returns>
         [SqlProcedure]
-        public int Compute(string inputOne, string inputTwo)
+        public static int GetLevenshteinDistance(string inputOne, string inputTwo)
         {
             if (inputOne == null)
                 throw new ArgumentNullException(nameof(inputOne));
